@@ -18,11 +18,16 @@ body {
   transition: transform 0.5s linear;
   width: 100vw;
   min-height: 100vh;
-  padding: 70px;
+  padding: 50px;
 }
 
 .container.show-nav {
   transform: rotate(-20deg);
+}
+
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.5s;
 }
 
 /* circle */
@@ -41,6 +46,10 @@ body {
   transition: transform 0.5s linear;
 }
 
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
 .circle button {
   cursor: pointer;
   position: absolute;
@@ -51,7 +60,7 @@ body {
   border: 0;
   font-size: 26px;
   color: #fff;
-  transition: color 0.5s linear;
+  transition: color 0.4s ease-in;
 }
 
 .circle button:hover {
@@ -72,7 +81,67 @@ body {
   transform-origin: top left;
 }
 
+/* Navigation */
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in, color 0.4s ease-in;
+}
+
+nav ul li:hover {
+  color: #ff7979;
+}
+
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav ul li i.fas {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
 /* Content */
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+
 .content img {
   max-width: 100%;
 }
